@@ -1,0 +1,110 @@
+{{ define "main" }}
+{{ $headless := .Site.GetPage "/homepage" }}
+{{ $sections := $headless.Resources.ByType "page" }}
+{{ $sections := cond .Site.BuildDrafts $sections (where $sections "Draft" "==" false) }}
+
+<div class="space-corp-bnr">
+    <div class="fl-l pad">
+        <p class='orbitron text-white'>SPACE CORP</p>
+    </div>
+    <div class="fl-r pad">
+
+        <input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn"/>
+        <label for="modal-btn">Join Now <i class="uil uil-expand-arrows"></i></label>    
+
+        <div class="modal">     
+            <div class="modal-wrap">    
+                <div class="stream-link">   
+                    <a href="">
+                        <svg class="serviceIcon jsx-3696517491" viewBox="0 0 24 24" style="fill: currentcolor; width: 30px; height: 30px; opacity: 1;"><path fill-rule="evenodd" d="M2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10S2 17.514 2 12zm13.479 4.36c.64.518 1.521-.604.64-1.12-2.79-1.635-6.117-1.718-9.197-1-.722.1-.663 1.239.08 1.239 2.998-.479 5.584-.856 8.477.88zm1.066-2.486C12.982 12.028 10.5 12 6.802 12.8c-.93 0-.988-1.313-.16-1.56 3.524-.917 7.46-.653 10.636 1.24.722.52.36 1.826-.733 1.394zm1.094-2.994c.996.752 1.964-.998.918-1.6-3.542-2.099-8.586-2.394-12.515-1.238-.973.32-.542 1.958.24 1.838 4.118-1.012 7.983-1.038 11.357 1z"></path></svg>
+                        Spotify
+                    </a>
+                </div>
+                <div class="stream-link">   
+                    <a href="">
+                        <svg class="serviceIcon jsx-3696517491" viewBox="0 0 24 24" style="fill: currentcolor; width: 30px; height: 30px; opacity: 1;"><path fill-rule="evenodd" d="M2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10S2 17.514 2 12zm13.479 4.36c.64.518 1.521-.604.64-1.12-2.79-1.635-6.117-1.718-9.197-1-.722.1-.663 1.239.08 1.239 2.998-.479 5.584-.856 8.477.88zm1.066-2.486C12.982 12.028 10.5 12 6.802 12.8c-.93 0-.988-1.313-.16-1.56 3.524-.917 7.46-.653 10.636 1.24.722.52.36 1.826-.733 1.394zm1.094-2.994c.996.752 1.964-.998.918-1.6-3.542-2.099-8.586-2.394-12.515-1.238-.973.32-.542 1.958.24 1.838 4.118-1.012 7.983-1.038 11.357 1z"></path></svg>
+                        Spotify
+                    </a>
+                </div>
+                <div class="stream-link">   
+                    <a href="">
+                        <svg class="serviceIcon jsx-3696517491" viewBox="0 0 24 24" style="fill: currentcolor; width: 30px; height: 30px; opacity: 1;"><path fill-rule="evenodd" d="M2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10S2 17.514 2 12zm13.479 4.36c.64.518 1.521-.604.64-1.12-2.79-1.635-6.117-1.718-9.197-1-.722.1-.663 1.239.08 1.239 2.998-.479 5.584-.856 8.477.88zm1.066-2.486C12.982 12.028 10.5 12 6.802 12.8c-.93 0-.988-1.313-.16-1.56 3.524-.917 7.46-.653 10.636 1.24.722.52.36 1.826-.733 1.394zm1.094-2.994c.996.752 1.964-.998.918-1.6-3.542-2.099-8.586-2.394-12.515-1.238-.973.32-.542 1.958.24 1.838 4.118-1.012 7.983-1.038 11.357 1z"></path></svg>
+                        Spotify
+                    </a>
+                </div>
+                <div class="stream-link">   
+                    <a href="">
+                        <svg class="serviceIcon jsx-3696517491" viewBox="0 0 24 24" style="fill: currentcolor; width: 30px; height: 30px; opacity: 1;"><path fill-rule="evenodd" d="M2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10S2 17.514 2 12zm13.479 4.36c.64.518 1.521-.604.64-1.12-2.79-1.635-6.117-1.718-9.197-1-.722.1-.663 1.239.08 1.239 2.998-.479 5.584-.856 8.477.88zm1.066-2.486C12.982 12.028 10.5 12 6.802 12.8c-.93 0-.988-1.313-.16-1.56 3.524-.917 7.46-.653 10.636 1.24.722.52.36 1.826-.733 1.394zm1.094-2.994c.996.752 1.964-.998.918-1.6-3.542-2.099-8.586-2.394-12.515-1.238-.973.32-.542 1.958.24 1.838 4.118-1.012 7.983-1.038 11.357 1z"></path></svg>
+                        Spotify
+                    </a>
+                </div>
+            </div>                          
+        </div>  
+    </div>
+</div>
+
+<div class="spotify-mobile-wpr">
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5YDCw515aIu7vG2v2f2Nep?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+</div>
+
+<header id="site-head" {{ with .Params.header_image }}style="background-image: url({{ . }})"{{ end }}>
+    <div class="vertical">
+        <div id="site-head-content" class="inner">
+
+            {{ with .Params.header_headline }}<h1 class="blog-title">{{ . }}</h1>{{ end }}
+            {{ with .Params.header_subheadline }}<h2 class="blog-description">{{ . }}</h2>{{ end }}
+
+            {{ range where $sections ".Params.header_menu" "eq" true }}
+                 <a class='btn site-menu' data-title-anchor='{{ anchorize .Title }}'>{{ .Title }}</a>
+            {{ end }}
+            <i id='header-arrow' class="fa fa-angle-down"></i>
+        </div>
+        <!-- <div class="spotify-wpr">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2OYwQ7AdRW8xqLEmbZAB8k?utm_source=generator" width="100%" height="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </div> -->
+    </div>
+</header>
+
+<!-- <div class="section full-height">
+    
+
+    <a href="https://front.codes/" class="logo" target="_blank">
+        <img src="https://assets.codepen.io/1462889/fcy.png" alt="">
+    </a>    
+</div> -->
+
+
+
+<main class="content" role="main">
+<!-- 
+    <div class='fixed-nav'>
+    </div> -->
+
+    {{ range $index_val, $elem_val := $sections }}
+        <div class='post-holder' {{with .Title }}style='background-image:url({{ . }})'{{end}}>
+            <article id='{{ anchorize .Title }}' class='post {{ if eq $index_val 0 }}first{{ end }} {{ if eq (add $index_val 1) (len $sections) }}last{{ end }}'>
+                <header class="post-header">
+                    <h2 class="post-title">{{ .Title }}</h2>
+                </header>
+                <section class="post-content">
+                    {{ .Content }}
+                </section>
+            </article>
+            <!-- <div class='post-after'></div> -->
+        </div>
+    {{ end }}
+</main>
+<!-- 
+<section id="site-head" {{ with .Params.header_image }}style="background-image: url(/gif/rip-clip-1.gif)"{{ end }}>
+    <div class="vertical">
+        <h5 class="orbitron">We lost everything</h5>
+    </div>
+</section>
+
+<section id="site-head" {{ with .Params.header_image }}style="background-image: url(/gif/rip-clip-2.gif)"{{ end }}>
+    <div class="vertical">
+        <h5 class="orbitron">But we can build a better tomorrow</h5>
+    </div>
+</section> -->
+
+{{ end }}
