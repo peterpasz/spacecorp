@@ -4,8 +4,9 @@
 {{ $sections := cond .Site.BuildDrafts $sections (where $sections "Draft" "==" false) }}
 
 <div class="space-corp-bnr">
-    <div class="fl-l pad">
-        <p class='orbitron text-white'>SPACE CORP</p>
+    <div class="fl-l">
+        <!-- <p class='orbitron text-white'>SPACE CORP</p> -->
+        <img src="/images/space-corp-logo.png" class="site-logo"/>
     </div>
     <div class="fl-r pad">
 
